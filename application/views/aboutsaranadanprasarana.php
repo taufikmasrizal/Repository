@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Welcome Repository</title>
+    <title>FTI UAJM Repository</title>
 
     <!-- core CSS -->
     <link href="<?php echo base_url('asset/css/bootstrap.min.css');?>" rel="stylesheet">
@@ -109,21 +109,22 @@
 <section id="feature">
         <div class="container">
             <div class="center fadeInDown">
-                <i><u><h2>Struktur Organisasi Fakultas Sistem Informasi</h2></u></i>
-                <i><u><p class="lead" align="justify">Dekan</p></u></i>
-                <p class="lead" align="justify">Sean Coonery Sumarta,ST.,M.Eng</p>
+                <i><u><h2>Sarana Dan Prasarana</h2></u></i>
+                <i><u><h3 class="lead" align="justify">Sumber Pembelajaran</h3></u></i>
+                <p class="lead" align="justify">FTI UAJ Makassar menyediakan sumber-sumber pembelajaran yang meliputi:</p>
+                <p class="lead" align="justify">1. Perpustakaan</p>
+                <p class="lead" align="justify">2. Bahan Ajar (reading materials)</p>
                 <br>
-                <i><u><p class="lead" align="justify">Wakil Dekan</p></u></i>
-                <p class="lead" align="justify">Elisabeth Tappy, S.Kom., M.MSI</p>
-                <br>
-                <i><u><p class="lead" align="justify">Ketua Jurusan Teknik Informatika</p></u></i>
-                <p class="lead" align="justify">Erick Alfons Lisangan, S.Kom., M.Cs.</p>
-                <br>
-                <i><u><p class="lead" align="justify">Ketua Jurusan Sistem Informasi</p></u></i>
-                <p class="lead" align="justify">Adi Chandra Sjarif, M.Sc.</p>
-                <br>
-                 <i><u><p class="lead" align="justify">Kepala Tata Usaha</p></u></i>
-                <p class="lead" align="justify">Selviana Tandungan</p>
+                <i><u><h3 class="lead" align="justify">Sarana dan Prasarana</h3></u></i>
+                <p class="lead" align="justify">FTI UAJ Makassar menyediakan sarana dan prasarana yang meliputi :</p>
+                <p class="lead" align="justify">1. Sarana di dalam kelas : komputer dan perangkat lunaknya, papan tulis,  proyektor LCD,  dan alat tulis.</p>
+                <p class="lead" align="justify">2. Sarana di luar kelas yang kondusif untuk praktek PBM/SCL.</p>
+                <p class="lead" align="justify">3. Fasilitas internet untuk mahasiswa.</p>
+                <p class="lead" align="justify">4. Computing Center</p>
+                <p class="lead" align="justify">5. Laboratorium Pemrograman</p>
+                <p class="lead" align="justify">6. Laboratorium Jaringan Komputer</p>
+                <p class="lead" align="justify">7. Laboratorium Multimedia</p>
+                <p class="lead" align="justify">8. Laboratorium Hardware</p>
             </div>
             
             <!--/.row-->

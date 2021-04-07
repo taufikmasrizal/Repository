@@ -1,34 +1,45 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Auth extends CI_Controller {
-public function index() {
-$this->load->view('index');
-}
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-public function cek_login() {
-$data = array('username' => $this->input->post('username', TRUE),
-'password' => md5($this->input->post('password', TRUE))
-);
-$this->load->model('model_user'); // load model_user
-$hasil = $this->model_user->cek_user($data);
-if ($hasil->num_rows() == 1) {
+class Auth extends CI_Controller{
+	public function index(){
+		$this->load->view('login');
+	}
 
-foreach ($hasil->result() as $sess) {
-$sess_data['logged_in'] = 'Sudah Loggin';
-$sess_data['id_login'] = $sess->id_login;
-$sess_data['username'] = $sess->username;
-$sess_data['level'] = $sess->level;
-$this->session->set_userdata($sess_data);
+	function masuk()
+	{
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+		$cek = $this->model_user->cek($username, $password);
+		if($cek->num_rows() == 1)
+		{
+			foreach($cek->result() as $data){
+				$sess_data['id_login'] = $data->id_login;
+				$sess_data['username'] = $data->username;
+				$sess_data['level'] = $data->level;
+				$this->session->set_userdata($sess_data);
+			}
+
+			if($this->session->userdata('level') == 'admin')
+			{
+				redirect('C_admin');
+			}
+			elseif($this->session->userdata('level') == 'member')
+			{
+				redirect('C_member');
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('pesan', 'Maaf, kombinasi username dengan password salah.');
+			redirect('login');
+		}
+	}
+
+	function keluar()
+	{
+		$this->session->sess_destroy();
+		redirect('login');
+	}
 }
-if ($this->session->userdata('level')=='admin') {
-redirect('C_admin');
-}
-elseif ($this->session->userdata('level')=='member') {
-redirect('C_member');
-}
-}
-else {
-echo "<script>alert('Gagal login: Cek username, password!');history.go(-1);</script>";
-}
-}
-}
-?>
