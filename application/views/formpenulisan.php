@@ -72,30 +72,27 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo base_url("Project/index"); ?>"><img src="<?php echo base_url('asset/images/logo.png');?>" alt="">FTI UAJM Repository</a>
+                    <a class="navbar-brand" href="index.html"><img src="<?php echo base_url('asset/images/logo.png');?>" alt="">FTI UAJM Repository</a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class=""><a href="<?php echo base_url("Project/index"); ?>">Home</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Penulisan<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url("About/index");?>">Visi Dan Misi</a></li>
-                                <li><a href="<?php echo base_url("About/strukturorganisasi");?>">Struktur dan Organisasi</a></li>
-                                <li><a href="<?php echo base_url("About/saranadanprasarana");?>">Sarana Dan Prasana</a></li>
+                                <li><a href="<?php echo base_url("Penulisan/tambah");?>">Form Penulisan</a></li>
+                                <li><a href="<?php echo base_url("About/strukturorganisasi");?>">Lihat Data Penulisan</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse<i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mahasiswa<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url("Browse/year");?>">Browse By Year</a></li>
-                                <li><a href="<?php echo base_url("Browse/subject");?>">Browse By Subject</a></li>
-                                <li><a href="<?php echo base_url("Browse/division");?>">Browse By Division</a></li>
-                                <li><a href="<?php echo base_url("Browse/Author");?>">Browse By Author</a></li>
+                                <li><a href="<?php echo base_url("Browse/year");?>">Form Register Mahasiswa</a></li>
+                                <li><a href="<?php echo base_url("Browse/subject");?>">Lihat Data Mahasiswa</a></li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo base_url("Login/index");?>">Login</a></li>
+                        <li><a href="<?php echo base_url("Login/logout");?>">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -106,95 +103,49 @@
     </header>
     <!--/header-->
     <!--/#main-slider-->
-<section id="partner">
+<section id="content">
         <div class="container">
-            <div class="center fadeInDown">
-                <i><h2>Welcome To FTI UAJM Repository</h2></i>
-<input class="form-control" list="datalistOptions" id="exampleDataList" style="height: 6rem;" placeholder="Type to search...">
-<datalist id="datalistOptions">
-  <option value="San Francisco">
-  <option value="New York">
-  <option value="Seattle">
-  <option value="Los Angeles">
-  <option value="Chicago">
-</datalist>
-                 <a href="#" class="btn btn-primary">Search</a>
+            <di v class="badge bg-primary text-wrap" style="width: 50rem; height: 10rem;">
+  <i><h2> Form Penulisan Skripsi </h2></i>
+  <i><b>Untuk mengupload penulisan harap isi semua data pada form !</b></i>
+</div>
+        <div class="row contact-wrap"> 
+                <div class="status alert alert-success" style="display: none"></div>
+               <?php echo validation_errors(); ?>
+              <?php echo form_open_multipart('Penulisan/tambah');?>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label for="judul penulisan" >ID Penulisan</label>
+                            <input type="text" name="id_penulisan" class="form-control" id="id_penulisan" value="<?php echo set_value('id_penulisan');?>" placeholder="Masukkan ID Penulisan" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="judul penulisan" >Judul Penulisan</label>
+                            <input type="text" name="judul_penulisan" class="form-control" id="judul_penulisan" value="<?php echo set_value('judul_penulisan');?>" placeholder="Masukkan judul Penulisan" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="judul penulisan" >Nama Pembuat</label>
+                            <input type="text" name="nama_pembuat" class="form-control" id="nama_pembuat" value="<?php echo set_value('nama_pembuat');?>" placeholder="Masukkan Id Penulisan" required="required">
+                        </div>  
+                        <div class="form-group">
+                            <label for="tahun penulisan" >Tahun Penulisan</label>
+                            <input type="date" name="tahun_penulisan" class="form-control" id="tahun_penulisan" value="<?php echo set_value('tahun_penulisan');?>" placeholder="Masukkan Tahun Penulisan" required="required">
+                        </div>   
+                        <div class="form-group">
+                            <label for="jurusan" >Jurusan</label>
+                            <input type="text" name="jurusan" class="form-control" id="jurusan" value="<?php echo set_value('jurusan');?>" placeholder="Masukkan Jurusan Mahasiswa" required="required">
+                        </div>  
+                        <div class="form-group">
+                            <label for="file_penulisan" >File Buku</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="file" name="file_penulisan" class="form-control" value="<?php echo set_value('file_penulisan');?>">
+                        </div>              
+                        <div class="form-group">
+                            <button type="submit" name="submit" value="simpan" class="btn btn-primary btn-lg">Submit</button>
+                        </div>
+                    </div>
+               <?php echo form_close(); ?>
             </div>
-        </div>
-        <!--/.container-->
-    </section>
-    <section id="feature">
-        <div class="container">
-            <div class="center fadeInDown">
-                <i><h2>Latest Addition</h2></i>
-                <p class="lead">View items added to the repository in the past week.</p>
-            </div>
-            <div class="clearfix text-center">
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-            <!--/.row-->
-        </div>
-        <!--/.container-->
-    </section>
-    <!--/#feature-->
-
-    <section id="recent-works">
-        <div class="container">
-            <div class="center fadeInDown">
-                <i><h2>Search repository</h2></i>
-                <p class="lead">Search the repository using a full range of fields. Use the search field at the top of the page for a quick search.</p>
-            </div>
-
-            
-            <!--/.row-->
-            <div class="clearfix text-center">
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-        </div>
-        <!--/.container-->
-    </section>
-    <!--/#recent-works-->
-
-    <section id="services" class="service-item">
-        <div class="container">
-            <div class="center fadeInDown">
-                <i><h2>Browse Repository</h2></i>
-                <p class="lead">Browse the items in the repository by subject.</p>
-            </div>
-            <div class="clearfix text-center">
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-            <!--/.row-->
-        </div>
-        <!--/.container-->
-    </section>
-    <section id="services" class="service-item">
-        <div class="container">
-            <div class="center fadeInDown">
-                <i><h2>About This Repository</h2></i>
-                <p class="lead">More Information about this site</p>
-            </div>
-            <div class="clearfix text-center">
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-            <!--/.row-->
-        </div>
-        <!--/.container-->
-    </section>
-    <section id="services" class="service-item">
-        <div class="container">
-            <div class="center fadeInDown">
-                <h2>Repository Policies</h2>
-                <p class="lead">Policy for use of material in this repository</p>
-            </div>
-            <div class="clearfix text-center">
-                <br>
-                <br>
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-            <!--/.row-->
-        </div>s
-        <!--/.container-->
     </section>
 <section id="bottom">
         <div class="container fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">

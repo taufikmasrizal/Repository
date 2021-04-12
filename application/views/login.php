@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="<?php echo base_url ('asset/images/ico/logo2.png');?>">
     <title>FTI UAJM Repository</title>
 
     <!-- core CSS -->
@@ -108,16 +109,16 @@
     <!--/#main-slider-->
 <section id="partner">
         <div class="container">
-            <div class="large-title text-center">        
-                <i><h2>LOGIN</h2></i>
-                <p>Silahkan Masukan Username dan Password anda.<br>Jika tidak dapat masuk harap hubungin nomor yang tertera</p>
-            </div> 
+            <div class="badge bg-primary text-wrap" style="width: 50rem; height: 10rem;">
+  <i><h2> Login To System </h2></i>
+  <i><b>Apabila tidak dapat login harap menghubungi nomor 0411 - 871038</b></i>
+</div>
         <div class="row contact-wrap"> 
                 <div class="status alert alert-success" style="display: none"></div>
-                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+                <form action="<?php echo base_url('index.php/Login/admin'); ?>" method="POST">
                     <div class="col-sm-5 col-sm-offset-1">
                         <a href="#" class="footer-logo">
-                        <img src="<?php echo base_url('asset/images/logo2.png');?>" alt="logo">
+                        <img src="<?php echo base_url('asset/images/logo-2.png');?>" alt="logo">
                     </a>             
                     </div>
                     <div class="col-sm-5">
@@ -129,13 +130,13 @@
                         </div>
                         <div class="form-group">
                             <label></label>
-                            <input type="text" name="name" class="form-control" placeholder="Masukkan Password" required="required">
+                            <input type="Password" name="name" class="form-control" placeholder="Masukkan Password" required="required">
                         </div>                       
                         <div class="form-group">
                             <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit</button>
                         </div>
                     </div>
-                </form> 
+               </form> 
             </div>
     </div>
     </section>

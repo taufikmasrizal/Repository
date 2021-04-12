@@ -79,23 +79,20 @@
                     <ul class="nav navbar-nav">
                         <li class=""><a href="<?php echo base_url("Project/index"); ?>">Home</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Penulisan<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url("About/index");?>">Visi Dan Misi</a></li>
-                                <li><a href="<?php echo base_url("About/strukturorganisasi");?>">Struktur dan Organisasi</a></li>
-                                <li><a href="<?php echo base_url("Browse/division");?>">Sarana Dan Prasana</a></li>
+                                <li><a href="<?php echo base_url("Penulisan/tambah");?>">Form Penulisan</a></li>
+                                <li><a href="<?php echo base_url("About/strukturorganisasi");?>">Lihat Data Penulisan</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse<i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mahasiswa<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url("Browse/year");?>">Browse By Year</a></li>
-                                <li><a href="<?php echo base_url("Browse/subject");?>">Browse By Subject</a></li>
-                                <li><a href="<?php echo base_url("Browse/division");?>">Browse By Division</a></li>
-                                <li><a href="<?php echo base_url("Browse/Author");?>">Browse By Author</a></li>
+                                <li><a href="<?php echo base_url("Browse/year");?>">Form Register Mahasiswa</a></li>
+                                <li><a href="<?php echo base_url("Browse/subject");?>">Lihat Data Mahasiswa</a></li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo base_url("Login/index");?>">Login</a></li>
+                        <li><a href="<?php echo base_url("Login/logout");?>">Logout</a></li>
                     </ul>
                 </div>
             </div>
