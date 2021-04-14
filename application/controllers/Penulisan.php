@@ -12,15 +12,35 @@ public function __construct(){
   }
 	public function index()
 	{
-        $dariDB = $this->Model_penulisan->cekidpenulisan();
-        // contoh JRD0004, angka 3 adalah awal pengambilan angka, dan 4 jumlah angka yang diambil
-        $nourut = substr($dariDB, 3, 4);
-        $idpenulisanSekarang = $nourut + 1;
-        $data = array('id_penulisan' => $idpenulisanSekarang);
-        $this->load->view("formpenulisan", $data);
+        $this->load->view('formpenulisan');
     }
- 
-	function tampil($id_penulisan=NULL){
+ function proses()
+    {
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'docx|pdf|doc';
+        $config['max_size']             = 100000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+        $config['encrypt_name']         = TRUE;
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('file_penulisan'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->view('formpenulisan', $error);
+        }
+        else
+        {
+            $data['id_penulisan'] = $this->input->post('id_penulisan');
+            $data['judul_penulisan'] = $this->input->post('judul_penulisan');
+            $data['nama_pembuat'] = $this->input->post('nama_pembuat');
+            $data['tahun_penulisan'] = $this->input->post('tahun_penulisan');
+            $data['file_penulisan'] = $this->upload->data("file_name");
+            $data['jurusan'] = $this->input->post('jurusan');
+            $this->db->insert('penulisan',$data);
+            redirect('Penulisan');
+        }
+    }
+	function tampil($id=NULL){
     $this->load->library('pagination'); // Load librari paginationnya
     
     $query = $this->db->get('penulisan'); // Query untuk menampilkan semua data siswa
@@ -39,9 +59,9 @@ public function __construct(){
  $data['halaman'] = $this->pagination->create_links();
 
    //tamplikan data
- $data['query'] = $this->modelbuku->ambil_buku($config['per_page'], $id);
+ $data['query'] = $this->Model_penulisan->ambildatamahasiswa($config['per_page'], $id);
     
-    $this->load->view('datapenulisan', $data);
+    $this->load->view('dataregister', $data);
   }
 
 public function tambah(){

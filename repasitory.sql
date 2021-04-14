@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2021 at 03:34 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.14
+-- Waktu pembuatan: 14 Apr 2021 pada 08.29
+-- Versi server: 10.4.17-MariaDB
+-- Versi PHP: 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,32 +24,64 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Struktur dari tabel `login`
 --
 
 CREATE TABLE `login` (
-  `id_login` int(20) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(12) CHARACTER SET latin1 NOT NULL,
-  `level` varchar(20) NOT NULL
+  `username` varchar(20) NOT NULL,
+  `password` varchar(90) NOT NULL,
+  `nama` varchar(255) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `login`
+-- Dumping data untuk tabel `login`
 --
 
-INSERT INTO `login` (`id_login`, `username`, `password`, `level`) VALUES
-(1, 'admin', 'admin', 'admin');
+INSERT INTO `login` (`username`, `password`, `nama`) VALUES
+('admin', '$2y$10$lXdcR9uT4bg3P7ZuoBUNE.NUS6wkOOsIUMMWOlLtULSE6s2hZfhaG', 'admin'),
+('andi', '$2y$10$TY10O/.Ny/eDoNSsgH7GtOGWeIiKFXVld90Z5qHPkGmrPOsAd5A3y', 'andi'),
+('taufik', '$2y$10$iWqnuGQdS5Z/dw7q.oa.1ud3KnZDxIlbRRmmu13HDMLwczISmqlHy', 'taufik');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `penulisan`
+--
+
+CREATE TABLE `penulisan` (
+  `id_penulisan` int(11) NOT NULL,
+  `judul_penulisan` varchar(255) NOT NULL,
+  `nama_pembuat` varchar(30) NOT NULL,
+  `tahun_penulisan` varchar(30) NOT NULL,
+  `jurusan` varchar(30) NOT NULL,
+  `file_penulisan` varchar(70) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `penulisan`
+--
+
+INSERT INTO `penulisan` (`id_penulisan`, `judul_penulisan`, `nama_pembuat`, `tahun_penulisan`, `jurusan`, `file_penulisan`) VALUES
+(10001, 'test', 'test', '2021-04-14', 'test', ''),
+(12131, 'ssd', 'sdsd', '2021-04-13', 'dsds', ''),
+(333333, 'dsfdsf', 'fsfsfd', '2021-04-21', 'fdsfsd', ''),
+(1111111, 'dds', 'fdfd', '2021-04-13', 'fdfdf', '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `login`
+-- Indeks untuk tabel `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`id_login`);
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indeks untuk tabel `penulisan`
+--
+ALTER TABLE `penulisan`
+  ADD PRIMARY KEY (`id_penulisan`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

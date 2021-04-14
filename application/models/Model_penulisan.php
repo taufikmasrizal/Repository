@@ -7,9 +7,7 @@ public function view(){
 public function validation($mode){
     $this->load->library('form_validation'); // Load library form_validation untuk proses validasinya
     
-    // Tambahkan if apakah $mode save atau update
-    // Karena ketika update, NIS tidak harus divalidasi
-    // Jadi NIS di validasi hanya ketika menambah data siswa saja
+    
     if($mode == "simpan_data")
       $this->form_validation->set_rules('id_penulisan', 'id_penulisan', 'required|numeric|max_length[11]');
     $this->form_validation->set_rules('judul_penulisan', 'judul_penulisan', 'required|max_length[255]');
@@ -25,7 +23,7 @@ public function validation($mode){
 
 public function simpan_data()
 		{
-			$config['upload_path']   = './uploads/';
+			$config['upload_path']   = './file/';
 			$config['allowed_types'] = 'docx|pdf|doc';
 			$config['max_size']      = '5048000';
 			$config['max_width']     = '1024';
@@ -33,7 +31,6 @@ public function simpan_data()
 			$config['file_name']     = url_title($this->input->post('file_penulisan'));
 			$filename = $this->upload->file_name;
 			$this->load->library('upload',$config);
-			$this->upload->initialize($config); 
 			$this->upload->do_upload('file_penulisan');
 			$data = $this->upload->data();
 			
@@ -48,5 +45,14 @@ public function simpan_data()
 			$this->db->insert('penulisan',$data);
 			redirect('Penulisan/tambah');
 		}	
+
+	public function ambildatamahasiswa($num, $offset)
+ {
+ $this->db->order_by('username', 'ASC');
+
+$data = $this->db->get('login', $num, $offset);
+
+return $data->result();
+ }
 
 }

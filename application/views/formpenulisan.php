@@ -77,7 +77,7 @@
 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class=""><a href="<?php echo base_url("Project/index"); ?>">Home</a></li>
+                        <li class=""><a href="<?php echo base_url("Home/index"); ?>">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Penulisan<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
@@ -111,8 +111,17 @@
 </div>
         <div class="row contact-wrap"> 
                 <div class="status alert alert-success" style="display: none"></div>
+                <?php 
+        if(isset($error))
+        {
+            echo "ERROR UPLOAD : <br/>";
+            print_r($error);
+            echo "<hr/>";
+        }
+        ?>
                <?php echo validation_errors(); ?>
               <?php echo form_open_multipart('Penulisan/tambah');?>
+
                     <div class="col-sm-5 col-sm-offset-1">
                         <div class="form-group">
                             <label for="judul penulisan" >ID Penulisan</label>
@@ -138,7 +147,7 @@
                             <label for="file_penulisan" >File Buku</label>
                         </div>
                         <div class="col-sm-10">
-                            <input type="file" name="file_penulisan" class="form-control" value="<?php echo set_value('file_penulisan');?>">
+                            <input type="file" name="file_penulisan" id="file_penulisan" value="<?php echo set_value('file_penulisan');?>" >
                         </div>              
                         <div class="form-group">
                             <button type="submit" name="submit" value="simpan" class="btn btn-primary btn-lg">Submit</button>
@@ -147,6 +156,7 @@
                <?php echo form_close(); ?>
             </div>
     </section>
+
 <section id="bottom">
         <div class="container fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
@@ -195,8 +205,6 @@
                         <!--/.col-md-3-->
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>

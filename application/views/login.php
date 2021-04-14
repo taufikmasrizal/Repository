@@ -115,7 +115,24 @@
 </div>
         <div class="row contact-wrap"> 
                 <div class="status alert alert-success" style="display: none"></div>
-                <form action="<?php echo base_url('index.php/Login/admin'); ?>" method="POST">
+                <?php 
+                if($this->session->flashdata('error') !='')
+                {
+                    echo '<div class="alert alert-danger" role="alert">';
+                    echo $this->session->flashdata('error');
+                    echo '</div>';
+                }
+                ?>
+ 
+                <?php 
+                if($this->session->flashdata('success_register') !='')
+                {
+                    echo '<div class="alert alert-info" role="alert">';
+                    echo $this->session->flashdata('success_register');
+                    echo '</div>';
+                }
+                ?>
+                <form method="post" action="<?php echo base_url(); ?>Login/proses">
                     <div class="col-sm-5 col-sm-offset-1">
                         <a href="#" class="footer-logo">
                         <img src="<?php echo base_url('asset/images/logo-2.png');?>" alt="logo">
@@ -126,11 +143,11 @@
                             <br>
                             <br>
                             <label></label>
-                            <input type="text" name="name" class="form-control" placeholder="Masukkan Username" required="required">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Masukkan Username" required="required">
                         </div>
                         <div class="form-group">
                             <label></label>
-                            <input type="Password" name="name" class="form-control" placeholder="Masukkan Password" required="required">
+                            <input type="Password" name="password" id="password" class="form-control" placeholder="Masukkan Password" required="required">
                         </div>                       
                         <div class="form-group">
                             <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit</button>

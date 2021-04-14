@@ -77,19 +77,19 @@
 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class=""><a href="<?php echo base_url("Home/index"); ?>">Home</a></li>
+                        <li class=""><a href="<?php echo base_url("Project/index"); ?>">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Penulisan<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url("Penulisan/proses");?>">Form Penulisan</a></li>
-                                <li><a href="<?php echo base_url("#");?>">Lihat Data Penulisan</a></li>
+                                <li><a href="<?php echo base_url("Penulisan/tambah");?>">Form Penulisan</a></li>
+                                <li><a href="<?php echo base_url("About/strukturorganisasi");?>">Lihat Data Penulisan</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mahasiswa<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url("Register/index");?>">Form Register Mahasiswa</a></li>
-                                <li><a href="<?php echo base_url("Penulisan/tampil");?>">Lihat Data Mahasiswa</a></li>
+                                <li><a href="<?php echo base_url("Browse/year");?>">Form Register Mahasiswa</a></li>
+                                <li><a href="<?php echo base_url("Browse/subject");?>">Lihat Data Mahasiswa</a></li>
                             </ul>
                         </li>
                         <li><a href="<?php echo base_url("Login/logout");?>">Logout</a></li>
@@ -103,96 +103,44 @@
     </header>
     <!--/header-->
     <!--/#main-slider-->
-<section id="partner">
+<section id="content">
         <div class="container">
-            <div class="center fadeInDown">
-                <h2>Welcome To UTY Open Access <?php echo $this->session->userdata('nama'); ?></h2>
-                 <a href="#" class="btn btn-primary">Click here to start customising this repository</a>
+            <di v class="badge bg-primary text-wrap" style="width: 50rem; height: 10rem;">
+  <i><h2> Form Register Mahasiswa </h2></i>
+  <i><b>Harap Diisi dengan benar</b></i>
+</div>
+        <div class="row contact-wrap"> 
+                <div class="status alert alert-success" style="display: none"></div>
+                <?php 
+                if($this->session->flashdata('error') !='')
+                {
+                    echo '<div class="alert alert-danger" role="alert">';
+                    echo $this->session->flashdata('error');
+                    echo '</div>';
+                }
+                ?>
+               <form method="post" action="<?php echo base_url(); ?>/Register/proses">
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label for="Nama Mahasiswa" >Nama Mahasiswa</label>
+                            <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama Mahasiswa" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="Username" >Username</label>
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Masukkan Username Mahasiswa" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="judul penulisan" >Password</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan Password" required="required">
+                        </div>      
+                        <div class="form-group">
+                            <button type="submit" name="submit" value="simpan" class="btn btn-primary btn-lg">Submit</button>
+                        </div>
+                    </div>
+               
             </div>
-        </div>
-        <!--/.container-->
     </section>
-    <section id="feature">
-        <div class="container">
-            <div class="center fadeInDown">
-                <h2>Latest Addition</h2>
-                <p class="lead">View items added to the repository in the past week.</p>
-            </div>
-            <div class="clearfix text-center">
-                <br>
-                <br>
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-            <!--/.row-->
-        </div>
-        <!--/.container-->
-    </section>
-    <!--/#feature-->
 
-    <section id="recent-works">
-        <div class="container">
-            <div class="center fadeInDown">
-                <h2>Search repository</h2>
-                <p class="lead">Search the repository using a full range of fields. Use the search field at the top of the page for a quick search.</p>
-            </div>
-
-            
-            <!--/.row-->
-            <div class="clearfix text-center">
-                <br>
-                <br>
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-        </div>
-        <!--/.container-->
-    </section>
-    <!--/#recent-works-->
-
-    <section id="services" class="service-item">
-        <div class="container">
-            <div class="center fadeInDown">
-                <h2>Browse Repository</h2>
-                <p class="lead">Browse the items in the repository by subject.</p>
-            </div>
-            <div class="clearfix text-center">
-                <br>
-                <br>
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-            <!--/.row-->
-        </div>
-        <!--/.container-->
-    </section>
-    <section id="services" class="service-item">
-        <div class="container">
-            <div class="center fadeInDown">
-                <h2>About This Repository</h2>
-                <p class="lead">More Information about this site</p>
-            </div>
-            <div class="clearfix text-center">
-                <br>
-                <br>
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-            <!--/.row-->
-        </div>
-        <!--/.container-->
-    </section>
-    <section id="services" class="service-item">
-        <div class="container">
-            <div class="center fadeInDown">
-                <h2>Repository Policies</h2>
-                <p class="lead">Policy for use of material in this repository</p>
-            </div>
-            <div class="clearfix text-center">
-                <br>
-                <br>
-                <a href="#" class="btn btn-primary">Show More</a>
-            </div>
-            <!--/.row-->
-        </div>s
-        <!--/.container-->
-    </section>
 <section id="bottom">
         <div class="container fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
@@ -241,8 +189,6 @@
                         <!--/.col-md-3-->
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
